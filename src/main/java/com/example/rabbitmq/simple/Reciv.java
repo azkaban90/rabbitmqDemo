@@ -12,7 +12,6 @@ public class Reciv {
     public static void main(String[] args) throws IOException, TimeoutException {
         Connection connection = ConnectionUtils.getConnection();
         Channel channel = connection.createChannel();
-
         //队列声明
         channel.queueDeclare(QUEUE_name, false, false, false, null);
 
