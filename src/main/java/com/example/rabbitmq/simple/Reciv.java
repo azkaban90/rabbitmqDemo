@@ -22,6 +22,7 @@ public class Reciv {
                 System.out.println(msg+":接收到消息");
             }
         };
+
         channel.basicConsume(QUEUE_name,true,consumer);
     }
 }
