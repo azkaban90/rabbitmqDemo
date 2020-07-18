@@ -14,6 +14,7 @@ public class Reci1 {
            Channel channel=  connection.createChannel();
            channel.queueDeclare(WORK_QUEUE,false,false,false,null);
 
+           channel.basicQos(1);
             Consumer defaultConsumer = new DefaultConsumer(channel) {
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
@@ -25,12 +26,13 @@ public class Reci1 {
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }finally {
+                        channel.basicAck(envelope.getDeliveryTag(),false);
                         System.out.println("【1】done");
                     }
                 }
             };
 
-            boolean autoAck = true;
+            boolean autoAck = false;
             channel.basicConsume(WORK_QUEUE,autoAck,defaultConsumer);
 
         }
