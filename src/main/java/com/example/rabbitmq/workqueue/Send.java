@@ -21,7 +21,6 @@ public class Send {
         for (int i = 0;i<50;i++){
             String msg ="msg"+i;
             channel.basicPublish("",WORK_QUEUE,null,msg.getBytes());
-            Thread.sleep(i*20);
         }
 
         System.out.println("fa");

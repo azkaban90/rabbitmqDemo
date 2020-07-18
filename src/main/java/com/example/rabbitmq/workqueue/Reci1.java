@@ -22,12 +22,12 @@ public class Reci1 {
                     System.out.printf("接收到消息："+msg);
 
                     try {
-                        Thread.sleep(20);
+                        Thread.sleep(20000);
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }finally {
-                        channel.basicAck(envelope.getDeliveryTag(),false);
                         System.out.println("【1】done");
+                        channel.basicAck(envelope.getDeliveryTag(),false);
                     }
                 }
             };

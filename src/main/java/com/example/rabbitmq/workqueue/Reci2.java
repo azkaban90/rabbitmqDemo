@@ -21,7 +21,7 @@ public class Reci2 {
                     System.out.printf("接收到消息："+msg);
 
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(100);
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }finally {
