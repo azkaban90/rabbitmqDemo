@@ -13,7 +13,7 @@ public class Send {
         Connection connection = ConnectionUtils.getConnection();
 
         Channel channel = connection.createChannel();
-        channel.queueDeclare(WORK_QUEUE,false,false,false,null);
+        channel.queueDeclare(WORK_QUEUE,true,false,false,null);
 
         // 收到消费者确认消息后再发送消息，每次一条
         channel.basicQos(1);

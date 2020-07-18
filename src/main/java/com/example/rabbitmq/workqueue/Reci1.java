@@ -12,7 +12,7 @@ public class Reci1 {
     public static void main(String[] args) throws IOException, TimeoutException {
         try (Connection connection = ConnectionUtils.getConnection()) {
            Channel channel=  connection.createChannel();
-           channel.queueDeclare(WORK_QUEUE,false,false,false,null);
+           channel.queueDeclare(WORK_QUEUE,true,false,false,null);
 
            channel.basicQos(1);
             Consumer defaultConsumer = new DefaultConsumer(channel) {
