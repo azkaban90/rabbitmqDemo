@@ -23,7 +23,7 @@ public class TxSend {
             channel.basicPublish("",QUEUE_NAME,null,msg.getBytes());
             int xxx = 1/0;
             channel.txCommit();
-        } catch (IOException e) {
+        } catch (Exception e) {
            channel.txRollback();
             System.out.println("txRollback");
             e.printStackTrace();
